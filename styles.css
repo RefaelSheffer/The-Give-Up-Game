@@ -25,12 +25,18 @@ body {
   display: none;
   flex-direction: column;
   gap: 1.5rem;
-  align-items: center;
+  align-items: stretch;
   text-align: center;
 }
 
 .screen.active {
   display: flex;
+}
+
+.screen-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 h1 {
@@ -44,15 +50,57 @@ h1 {
   color: #4b4b4b;
 }
 
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  text-align: right;
+}
+
+.field-full {
+  width: 100%;
+}
+
+.field-label {
+  font-weight: 700;
+}
+
+.field-hint {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 14px;
+  border: 1px solid #d7d7d7;
+  background: #fff;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 180px;
+}
+
 .primary-button,
 .secondary-button,
+.tertiary-button,
 .player-button {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   padding: 0.85rem 1.5rem;
   border-radius: 999px;
   border: none;
   cursor: pointer;
-  width: min(100%, 320px);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -70,10 +118,31 @@ h1 {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
+.tertiary-button {
+  background: #f1efe9;
+  color: #3a3a3a;
+  border: 1px dashed #cfc7bd;
+}
+
 .primary-button:hover,
 .secondary-button:hover,
+.tertiary-button:hover,
 .player-button:hover {
   transform: translateY(-2px);
+}
+
+.inline-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.primary-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
 }
 
 .player-buttons {
@@ -88,6 +157,7 @@ h1 {
   color: #ffffff;
   font-weight: 600;
   box-shadow: 0 6px 16px rgba(46, 196, 182, 0.3);
+  width: 100%;
 }
 
 .cards {
@@ -120,7 +190,13 @@ h1 {
 @media (max-width: 600px) {
   .primary-button,
   .secondary-button,
+  .tertiary-button,
   .player-button {
     width: 100%;
+  }
+
+  .inline-actions,
+  .primary-actions {
+    flex-direction: column;
   }
 }
