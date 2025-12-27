@@ -9,29 +9,73 @@
   <body>
     <main class="app">
       <section id="screen-setup" class="screen">
-        <h1>ערבבו לפני שמתחילים</h1>
-        <p class="helper-text">זה יחלק 3 קלפים לכל שחקן (סה״כ 5 שחקנים)</p>
-        <button id="deal-button" class="primary-button">Shuffle &amp; Deal / ערבב וחלק</button>
+        <header class="screen-header">
+          <h1>הגדרת משחק</h1>
+          <p class="helper-text">מכניסים קלפים, בוחרים שחקנים ולוחצים שמור וחלק.</p>
+        </header>
+
+        <div class="form-grid">
+          <label class="field">
+            <span class="field-label">שם משחק (אופציונלי)</span>
+            <input
+              id="session-name"
+              type="text"
+              placeholder="שם משחק / שם סשן"
+              autocomplete="off"
+            />
+          </label>
+
+          <label class="field">
+            <span class="field-label">מספר שחקנים</span>
+            <select id="num-players"></select>
+          </label>
+        </div>
+
+        <label class="field field-full">
+          <span class="field-label">קלפים</span>
+          <span class="field-hint">כל שורה = כרטיס אחד</span>
+          <textarea
+            id="cards-input"
+            rows="10"
+            placeholder="לדוגמה:\nמוותר על שוקולד\nמוותר על יד ימין\nמוותר על שיניים"
+          ></textarea>
+        </label>
+
+        <div class="inline-actions">
+          <button id="add-samples" class="tertiary-button" type="button">הוסף דוגמאות</button>
+          <button id="clear-cards" class="tertiary-button" type="button">נקה הכל</button>
+        </div>
+
         <p id="deal-error" class="error" role="alert"></p>
-        <button id="reset-button" class="secondary-button">Reset / משחק חדש</button>
+
+        <div class="primary-actions">
+          <button id="save-deal" class="primary-button">Save &amp; Deal / שמור וחלק</button>
+          <button id="reset-button" class="secondary-button">Reset / איפוס</button>
+        </div>
       </section>
 
       <section id="screen-players" class="screen">
-        <h1>בחר שחקן</h1>
-        <div class="player-buttons" role="group" aria-label="בחר שחקן">
-          <button class="player-button" data-player="0">Player 1</button>
-          <button class="player-button" data-player="1">Player 2</button>
-          <button class="player-button" data-player="2">Player 3</button>
-          <button class="player-button" data-player="3">Player 4</button>
-          <button class="player-button" data-player="4">Player 5</button>
+        <header class="screen-header">
+          <h1>בחר שחקן</h1>
+          <p class="helper-text">כל שחקן לוחץ על הכפתור שלו כדי לראות את הקלפים.</p>
+        </header>
+
+        <div id="player-buttons" class="player-buttons" role="group" aria-label="בחר שחקן"></div>
+
+        <div class="primary-actions">
+          <button id="back-to-setup" class="secondary-button">חזרה להגדרות</button>
+          <button id="redeal-button" class="primary-button">חלק מחדש</button>
+          <button id="reset-button-players" class="secondary-button">איפוס</button>
         </div>
-        <button id="reset-button-players" class="secondary-button">Reset / משחק חדש</button>
       </section>
 
       <section id="screen-player" class="screen">
-        <h1 id="player-title">Player</h1>
+        <header class="screen-header">
+          <h1 id="player-title">Player</h1>
+          <p class="helper-text">אלה הקלפים שחולקו לך.</p>
+        </header>
         <div id="cards" class="cards"></div>
-        <button id="back-button" class="secondary-button">Back / חזרה לבחירת שחקן</button>
+        <button id="back-button" class="secondary-button">חזרה</button>
       </section>
     </main>
 
