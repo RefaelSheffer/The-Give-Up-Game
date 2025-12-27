@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>משחק הוויתורים</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section id="screen-setup" class="screen">
+        <h1>ערבבו לפני שמתחילים</h1>
+        <p class="helper-text">זה יחלק 3 קלפים לכל שחקן (סה״כ 5 שחקנים)</p>
+        <button id="deal-button" class="primary-button">Shuffle &amp; Deal / ערבב וחלק</button>
+        <p id="deal-error" class="error" role="alert"></p>
+        <button id="reset-button" class="secondary-button">Reset / משחק חדש</button>
+      </section>
+
+      <section id="screen-players" class="screen">
+        <h1>בחר שחקן</h1>
+        <div class="player-buttons" role="group" aria-label="בחר שחקן">
+          <button class="player-button" data-player="0">Player 1</button>
+          <button class="player-button" data-player="1">Player 2</button>
+          <button class="player-button" data-player="2">Player 3</button>
+          <button class="player-button" data-player="3">Player 4</button>
+          <button class="player-button" data-player="4">Player 5</button>
+        </div>
+        <button id="reset-button-players" class="secondary-button">Reset / משחק חדש</button>
+      </section>
+
+      <section id="screen-player" class="screen">
+        <h1 id="player-title">Player</h1>
+        <div id="cards" class="cards"></div>
+        <button id="back-button" class="secondary-button">Back / חזרה לבחירת שחקן</button>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
