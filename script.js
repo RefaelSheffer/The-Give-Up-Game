@@ -100,21 +100,10 @@ function dealCards(deck, numPlayers) {
 }
 
 function normalizeCards(text) {
-  const lines = text
+  return text
     .split("\n")
     .map((line) => line.trim())
     .filter(Boolean);
-
-  const unique = [];
-  const seen = new Set();
-  lines.forEach((line) => {
-    if (!seen.has(line)) {
-      seen.add(line);
-      unique.push(line);
-    }
-  });
-
-  return unique;
 }
 
 function renderPlayerButtons(numPlayers) {
@@ -163,7 +152,7 @@ function buildGameConfig() {
   const numPlayers = Number(numPlayersSelect.value);
   const cardsList = normalizeCards(cardsInput.value);
   return {
-    sessionName: sessionNameInput.value.trim() || null,
+    sessionName: sessionNameInput.value.trim(),
     numPlayers,
     cardsPerPlayer: CARDS_PER_PLAYER,
     cardsList,
